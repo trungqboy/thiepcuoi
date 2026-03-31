@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haha Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* [Giữ nguyên toàn bộ CSS cũ của tao] */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ec4899;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(139, 92, 246, 0.8), rgba(236, 72, 153, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23f3e8ff"/><stop offset="100%" stop-color="%23e0e7ff"/></radialGradient></defs><rect width="1200" height="800" fill="url(%23a)"/></svg>');
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero .date {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, #ec4899, #8b5cf6);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(236, 72, 153, 0.6);
+        }
+
+        section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .detail-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .detail-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .rsvp-form {
+            max-width: 500px;
+            margin: 3rem auto 0;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ec4899;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .story-grid { grid-template-columns: 1fr; }
+            section { padding: 3rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header + Hero + Content giữ nguyên như cũ -->
+    <header>
+        <nav>
+            <div class="logo">Haha Wedding</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#story">Câu chuyện</a></li>
+                <li><a href="#details">Chi tiết</a></li>
+                <li><a href="#rsvp">Xác nhận</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Trung & Qboy</h1>
+            <div class="date">14.02.2025</div>
+            <a href="#rsvp" class="cta-button">Xác nhận tham dự</a>
+        </div>
+    </section>
+
+    <section id="story">
+        <h2 class="section-title">Câu chuyện tình yêu</h2>
+        <div class="story-grid">
+            <div>
+                <h3>Chúng tôi gặp nhau...</h3>
+                <p>Vào một ngày đẹp trời, định mệnh đã đưa chúng tôi đến với nhau...</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 alt="Couple" style="width:100%; border-radius:20px; box-shadow:0 20px 40px rgba(0,0,0,0.1);">
+        </div>
+    </section>
+
+    <section id="details">
+        <h2 class="section-title">Thông tin chi tiết</h2>
+        <div class="details-grid">
+            <div class="detail-card">
+                <div class="detail-icon">📅</div>
+                <h4>Ngày cưới</h4>
+                <p>14/02/2025<br>Thứ Bảy</p>
+            </div>
+            <div class="detail-card">
+                <div class="detail-icon">⛪</div>
+                <h4>Địa điểm</h4>
+                <p>Nhà hàng ABC<br>123 Đường XYZ</p>
+            </div>
+            <div class="detail-card">
+                <div class="detail-icon">🕒</div>
+                <h4>Thời gian</h4>
+                <p>Lễ: 17:00<br>Tiệc: 18:00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM RSVP GỬI GOOGLE SHEETS -->
+    <section id="rsvp">
+        <h2 class="section-title">Xác nhận tham dự</h2>
+        <form class="rsvp-form" id="rsvpForm">
+            <div class="form-group">
+                <label>Họ và tên <span style="color:#ec4899">*</span>:</label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="form-group">
+                <label>Số lượng người <span style="color:#ec4899">*</span>:</label>
+                <select name="guests" required>
+                    <option value="">Chọn số lượng</option>
+                    <option value="1 người">1 người</option>
+                    <option value="2 người">2 người</option>
+                    <option value="3 người">3 người</option>
+                    <option value="4+ người">4+ người</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Ghi chú:</label>
+                <textarea name="note" rows="4" placeholder="Dị ứng thực phẩm, yêu cầu đặc biệt..."></textarea>
+            </div>
+            <button type="submit" class="cta-button" style="width:100%; padding:1.2rem;">
+                ✅ Xác nhận tham dự
+            </button>
+        </form>
+        <p style="text-align:center; margin-top:1rem; color:#666; font-size:0.9rem;">
+            Dữ liệu được lưu an toàn vào Google Sheets
+        </p>
+    </section>
+
+    <!-- 🔥 GOOGLE SHEETS INTEGRATION -->
+    <script>
+        // 👇 THAY URL NÀY BẰNG WEB APP URL CỦA MÀY
+        const GOOGLE_SCRIPT_URL = 'file:///C:/Users/guen_t/Downloads/blackbox-output-code-L6N3BLTA5K.html';
+        
+        document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            // Loading...
+            submitBtn.innerHTML = '⏳ Đang gửi...';
+            submitBtn.disabled = true;
+            
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.result === 'success') {
+                    alert('🎉 CẢM ƠN! Đã lưu vào danh sách khách mời 💕');
+                    this.reset();
+                } else {
+                    alert('❌ Lỗi! Thử lại hoặc inbox Zalo nhé');
+                }
+            } catch (error) {
+                alert('❌ Lỗi kết nối! Inbox Zalo tao nhé');
+                console.error('Error:', error);
+            } finally {
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
