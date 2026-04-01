@@ -273,28 +273,33 @@
     <section id="rsvp">
         <h2 class="section-title">Xác nhận tham dự</h2>
         <form class="rsvp-form" id="rsvpForm">
-            <div class="form-group">
-                <label>Họ và tên <span style="color:#ec4899">*</span>:</label>
-                <input type="text" name="name" required>
-            </div>
-            <div class="form-group">
-                <label>Số lượng người <span style="color:#ec4899">*</span>:</label>
-                <select name="guests" required>
-                    <option value="">Chọn số lượng</option>
-                    <option value="1 người">1 người</option>
-                    <option value="2 người">2 người</option>
-                    <option value="3 người">3 người</option>
-                    <option value="4+ người">4+ người</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Ghi chú:</label>
-                <textarea name="note" rows="4" placeholder="Dị ứng thực phẩm, yêu cầu đặc biệt..."></textarea>
-            </div>
-            <button type="submit" class="cta-button" style="width:100%; padding:1.2rem;">
-                ✅ Xác nhận tham dự
-            </button>
-        </form>
+    <div class="form-group">
+        <label>Họ và tên <span style="color:#ec4899">*</span>:</label>
+        <input type="text" name="name" placeholder="Nguyễn Văn An" required>
+    </div>
+    <div class="form-group">
+        <label>Facebook <span style="color:#ec4899">*</span>:</label>
+        <input type="url" name="facebook" placeholder="facebook.com/nguyenvanan" required>
+    </div>
+    <div class="form-group">
+        <label>Số lượng người <span style="color:#ec4899">*</span>:</label>
+        <select name="guests" required>
+            <option value="">Chọn số lượng</option>
+            <option value="1 người">1 người</option>
+            <option value="2 người">2 người</option>
+            <option value="3 người">3 người</option>
+            <option value="4+ người">4+ người</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Ghi chú:</label>
+        <textarea name="note" rows="3" placeholder="Dị ứng thức ăn, yêu cầu bàn, trẻ em..."></textarea>
+    </div>
+    <button type="submit" class="cta-button" style="width:100%;">
+        💒 Xác nhận tham dự
+    </button>
+</form>
+        
         <p style="text-align:center; margin-top:1rem; color:#666; font-size:0.9rem;">
             Dữ liệu được lưu an toàn vào Google Sheets
         </p>
